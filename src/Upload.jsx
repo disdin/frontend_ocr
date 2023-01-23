@@ -12,6 +12,7 @@ function Upload() {
             Accept: 'application/json',
             'x-rapidapi-host': 'famous-quotes4.p.rapidapi.com',
             'x-rapidapi-key': '<your-key-here>',
+            'Access-Control-Allow-Origin': '*',
         },
     });
     const [selectedFile, setSelectedFile] = useState(null);
