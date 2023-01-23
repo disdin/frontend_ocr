@@ -5,6 +5,15 @@ import './upload.css';
 const backend_url = "https://backend-ocr-ps.onrender.com"
 
 function Upload() {
+    const axios_instance = axios.create({
+        baseURL: 'https://backend-ocr-ps.onrender.com',
+        timeout: 8000,
+        headers: {
+            Accept: 'application/json',
+            'x-rapidapi-host': 'famous-quotes4.p.rapidapi.com',
+            'x-rapidapi-key': '<your-key-here>',
+        },
+    });
     const [selectedFile, setSelectedFile] = useState(null);
     const [file, setFile] = useState(null);
     const [base64out, setBase64out] = useState(null);
@@ -24,7 +33,7 @@ function Upload() {
         const fd = new FormData();
         fd.append('image_name', selectedFile, selectedFile.name);
         try {
-            const res = await axios.post(`${backend_url}/upload`, fd)
+            const res = await axios_instance.post(`/upload`, fd)
         }
         catch (err) {
             console.log("upload.jsx error msg ", err)
@@ -36,7 +45,7 @@ function Upload() {
         setOutput(null)
         setloading(true)
         setFileExtension(null);
-        const res = await axios.post(`${backend_url}/runScript`)
+        const res = await axios_instance.post(`/runScript`)
         console.log(res)
         setOutput(res.data.output)
         setBase64out(res.data.data);
