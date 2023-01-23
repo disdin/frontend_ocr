@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import Images from './Images';
 import './upload.css';
+const backend_url = "http://localhost:5000"
 
 function Upload() {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -23,7 +24,7 @@ function Upload() {
         const fd = new FormData();
         fd.append('image_name', selectedFile, selectedFile.name);
         try {
-            const res = await axios.post('http://localhost:5000/upload', fd)
+            const res = await axios.post(`${backend_url}/upload`, fd)
         }
         catch (err) {
             console.log("upload.jsx error msg ", err)
@@ -35,7 +36,7 @@ function Upload() {
         setOutput(null)
         setloading(true)
         setFileExtension(null);
-        const res = await axios.post('http://localhost:5000/runScript')
+        const res = await axios.post(`${backend_url}/runScript`)
         console.log(res)
         setOutput(res.data.output)
         setBase64out(res.data.data);
