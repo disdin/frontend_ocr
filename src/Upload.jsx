@@ -7,7 +7,7 @@ const backend_url = "https://backend-ocr-ps.onrender.com"
 function Upload() {
     const axios_instance = axios.create({
         baseURL: 'https://backend-ocr-ps.onrender.com',
-        timeout: 8000,
+        // timeout: 8000,
         headers: {
             Accept: 'application/json',
             'x-rapidapi-host': 'famous-quotes4.p.rapidapi.com',
