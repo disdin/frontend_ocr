@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import Images from './Images';
 import './upload.css';
-const backend_url = "http://localhost:5000"
+const backend_url = "https://backend-ocr-ps.onrender.com"
 
 function Upload() {
     const [selectedFile, setSelectedFile] = useState(null);
