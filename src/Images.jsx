@@ -21,7 +21,7 @@ function Images() {
       { id: 7, image: './ocr_pics/7.jpg', out: './output/7.png' },
       { id: 8, image: './ocr_pics/8.jpg', out: './output/8.png' },
       { id: 9, image: './ocr_pics/9.jpg', out: './output/9.png' },
-      { id: 10, image: './ocr_pics/10.jpg', out: './output/10.png' }
+      { id: 10, image: './ocr_pics/10.jpg', out: './output/10.jpg' }
     ]
   const [path_clicked, setpath_clicked] = useState("");
   const image_clicked = (item) => {
